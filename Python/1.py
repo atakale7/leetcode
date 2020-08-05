@@ -9,16 +9,16 @@ class Solution:
     def twoSum(self, nums, target):
         mydict = {}
         for ind,num in enumerate(nums):
-            complement = target - num
-            if complement not in mydict:
-                mydict[num] = ind
+            if num in mydict:
+                return([mydict[num],ind])
             else:
-                return([mydict[complement],ind])
+                mydict[target - num] = ind
+        return None
 
 
 if __name__ == "__main__":
     nums = [2, 7, 11, 15]
-    target = 27
+    target = 17
     solution = Solution()
     sol = solution.twoSum(nums, target)
     print(sol)
